@@ -1,11 +1,11 @@
-# Graduates UPC Module 
-Copyright (C) 2019 Luis F. Guerrón, Camilo A. Caycedo & Juan P. Valbuena
+# Graduates UPC Module
+Copyright (C) 2019 Luis F. Guerrón, Camilo A. Caycedo, Juan C. Parra.
 
 ## Personal Use License
 This project is a school assignment and nobody has the right to use their code for commercial use. In addition, this project has been implemented for academic reasons and the only right allowed is to just test and observe its functionality. We are not responsible for potential problems that may exist.
 
 ## About
-This is a single page web application that implements a graduate service similar to LinkedIn. This project is an assignment for the course "Software Quality" of the faculty of systems engineering of the Universidad Piloto de Colombia.
+This is a single page web application that implements a graduates service similar to LinkedIn. This project is an assignment for the course "Software Quality" of the school of systems engineering at the Piloto University of Colombia.
 
 ## Build & Execution
 To build & run this application make sure that you have installed Java 8 & MySQL Server. Also you must edit your hosts file by adding the following:
@@ -18,11 +18,11 @@ You can build the package as a single artifact by running the `./mvnw clean inst
 Next, you can run the application by executing:
 
 ```bash
-$ java -jar backend/target/graduates-app.jar
+$ java -jar backend/target/linkdin-app.jar
 ```
 
 The application will be accessible at `https://linkdin.dyndns.org:8080`. <br>
-Make sure that the files `cert.pem`, `key.pem` & `keystore.p12` are in the same directory with the `linkdin-app.jar`.
+Also make sure that the files `cert.pem`, `key.pem` & `keystore.p12` are in the same directory with the `linkdin-app.jar`.
 
 ### Running the backend for development mode
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
@@ -43,9 +43,8 @@ Once the above command finishes, you can start the frontend using the `yarn star
 Both the front-end and back-end modules support hot reloading.
 
 ### Database setup
-To set up the database of this web application is pretty straight forward. All you have to do is simply to execute the script `create_db.sql` in the directory `database`. 
-<br>
-Also we have created a script to initiliaze the database with records that are stored in .csv files. To do that just run the script `import_records.sql` with the only resrtiction that all the .csv files must be stored in a directory with name `db_backup` which must be in the same path with the script or just run the script `single_file.sql`.
+To set up the database of this web application is pretty straight forward. All you have to do is simply to execute the script `create_db.sql` in the directory `database`. <br>
+Also we have created a script to initiliaze the database with records that are stored in .csv files. To do that just run the script `import_records.sql` with the only resrtiction that all the .csv files must be stored in a directory with name `db_backup` which must be in the same path with the script or just can use the script `single_file.sql` to create some data to test it quickly.
 
 ## Frameworks used
 
@@ -72,7 +71,7 @@ Each user's job advert page contains job adverts that are based on the personal 
 ### TLS
 We used a cerificate that is signed from [Let's Encrypt](https://letsencrypt.org/) in order to encrypt all the traffic between the clients and the server.
 
-##Extra Features
+##Extra features
 
 ### Post Visibility
 Although it was not in the description of functional requirements, we have added a special feature in the publications. All publications can be public or private. With the attribute 'public' the publication can be visible from all. On the contrary, with the "private" attribute, the publication is only visible within the user's network.
