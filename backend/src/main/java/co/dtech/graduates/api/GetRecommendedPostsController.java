@@ -1,5 +1,8 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.Post;
+import co.dtech.graduates.model.PostComment;
 import co.dtech.graduates.model.PostInterest;
 import co.dtech.graduates.repositories.PostCommentRepository;
 import co.dtech.graduates.repositories.PostInterestRepository;
@@ -9,10 +12,6 @@ import co.dtech.graduates.services.PostService;
 import co.dtech.graduates.services.UserNetworkService;
 import co.dtech.graduates.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.Post;
-import co.dtech.graduates.model.PostComment;
-import com.linkdin.app.services.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

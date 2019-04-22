@@ -144,7 +144,7 @@ public class RecommendedAdvertsService {
             for (String cWord : advertContainer[counter].contentWords) {
                 cWord = cWord.toLowerCase().trim();
                 if (!cWord.trim().isEmpty()) {
-                    if (!stopwordsSet.contains(cWord)){
+                    if (!stopwordsSet.contains(cWord)) {
                         advertContainer[counter].set.add(cWord);
                     }
                 }

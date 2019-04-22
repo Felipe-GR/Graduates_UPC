@@ -1,10 +1,9 @@
 package co.dtech.graduates.api;
 
-import co.dtech.graduates.services.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.model.Post;
-import com.linkdin.app.services.*;
+import co.dtech.graduates.services.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,7 +57,7 @@ public class PostCommentController {
                     post.getIsPublic() == 1) {
                 postCommentService.addComment(comment, Integer.parseInt(postID), Integer.parseInt(userIdentifiers.id));
                 // Don't push notification with comments/interests from the user that owns the post
-                if(userIDPostOwner != Integer.parseInt(userIdentifiers.id)) {
+                if (userIDPostOwner != Integer.parseInt(userIdentifiers.id)) {
                     notificationsService.createNewNotification(Integer.parseInt(userIdentifiers.id), userIDPostOwner, Integer.parseInt(postID), 2);
                 }
                 return new ResponseEntity<>(HttpStatus.OK);

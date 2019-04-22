@@ -1,8 +1,8 @@
 package co.dtech.graduates.api;
 
-import co.dtech.graduates.services.UserService;
 import co.dtech.graduates.dto.Credentials;
 import co.dtech.graduates.model.User;
+import co.dtech.graduates.services.UserService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +28,7 @@ public class LoginController {
 
         // Check if credentials are legit
         // Check for empty fields
-        if(credentials.checkForEmptyCreds(credentials)) {
+        if (credentials.checkForEmptyCreds(credentials)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         // Authenticate user
@@ -40,7 +40,7 @@ public class LoginController {
             String firstName = user.getName();
             String lastName = user.getSurname();
             String isAdmin = Integer.toString(user.getIsAdmin());
-             // Random User token
+            // Random User token
             Random rand = new Random();
             int userTokenInt = rand.nextInt(9000000) + 1000000;
             String userToken = Integer.toString(userTokenInt);
@@ -51,7 +51,7 @@ public class LoginController {
                     .put("firstName", firstName)
                     .put("lastName", lastName)
                     .put("email", email)
-                    .put("isAdmin",isAdmin)
+                    .put("isAdmin", isAdmin)
                     .toString();
 
             // Create a new session and add the security context.

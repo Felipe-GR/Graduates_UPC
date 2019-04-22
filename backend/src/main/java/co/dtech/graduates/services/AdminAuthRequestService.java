@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 public class AdminAuthRequestService {
     @Autowired
     UserService userService;
+
     public boolean authenticateRequest(UserIdentifiers userIdentifiers, HttpSession session) {
         if (session == null) {
             return false;
@@ -20,14 +21,14 @@ public class AdminAuthRequestService {
         if (userIdentifiers.userToken == null || userIdentifiers.id == null) {
             return false;
         }
-        if(session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME) == null){
+        if (session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME) == null) {
             return false;
         }
         if (session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME).equals(userIdentifiers.id) &&
                 session.getAttribute("userToken").equals(userIdentifiers.userToken)) {
 
             User user = userService.returnUserByID(Integer.parseInt(userIdentifiers.id));
-            if(user.getIsAdmin() == 1) {
+            if (user.getIsAdmin() == 1) {
                 System.err.println("admin is authenticated!");
                 return true;
             } else {

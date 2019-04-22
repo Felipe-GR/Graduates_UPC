@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>linkdin</artifactId>
-    <groupId>com.linkdin.webdev</groupId>
+    <artifactId>graduates</artifactId>
+    <groupId>co.dtech.graduates</groupId>
     <version>1.0.RELEASE</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>linkdin-frontend</artifactId>
+  <artifactId>graduates-frontend</artifactId>
 
   <properties>
     <main.basedir>${project.parent.basedir}</main.basedir>
@@ -15,7 +15,7 @@
   </properties>
 
   <build>
-    <finalName>linkdin-frontend-app</finalName>
+    <finalName>graduates-frontend-app</finalName>
     <resources>
       <resource>
         <directory>ui-src</directory>

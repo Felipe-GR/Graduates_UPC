@@ -1,9 +1,9 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.ImageStorageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,7 +36,7 @@ public class GetImageController {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 
-            String imageBytes =  imageStorageService.getImage(imageName);
+            String imageBytes = imageStorageService.getImage(imageName);
             String returnJsonImage = new JSONObject()
                     .put("image", imageBytes).toString();
             return new ResponseEntity<>(returnJsonImage, HttpStatus.OK);

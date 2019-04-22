@@ -1,11 +1,11 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.Post;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.PostService;
 import co.dtech.graduates.services.UserNetworkService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.Post;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,9 +1,9 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.ChatService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +37,7 @@ public class ChatGetMessagesController {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 
-            if(!chatService.checkChatWithUserID(chatID, Integer.parseInt(userIdentifiers.id))) {
+            if (!chatService.checkChatWithUserID(chatID, Integer.parseInt(userIdentifiers.id))) {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 

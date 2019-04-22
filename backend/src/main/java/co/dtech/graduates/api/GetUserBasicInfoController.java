@@ -1,12 +1,12 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserBasicInfo;
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.User;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.ImageStorageService;
 import co.dtech.graduates.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserBasicInfo;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.User;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,7 +43,7 @@ public class GetUserBasicInfoController {
             }
 
             User user = userService.returnUserByID(Integer.parseInt(userId));
-            if(user == null) {
+            if (user == null) {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 

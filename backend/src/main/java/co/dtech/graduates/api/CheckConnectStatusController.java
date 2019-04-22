@@ -1,13 +1,13 @@
 package co.dtech.graduates.api;
 
-import co.dtech.graduates.services.AuthRequestService;
-import co.dtech.graduates.services.UserNetworkService;
-import co.dtech.graduates.services.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import co.dtech.graduates.dto.ConnectionAttributes;
 import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.model.User;
 import co.dtech.graduates.model.UserNetwork;
+import co.dtech.graduates.services.AuthRequestService;
+import co.dtech.graduates.services.UserNetworkService;
+import co.dtech.graduates.services.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +44,7 @@ public class CheckConnectStatusController {
             }
 
             User user = userService.returnUserByID(Integer.parseInt(userTargetProfileID));
-            if(user == null) {
+            if (user == null) {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 

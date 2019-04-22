@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>linkdin</artifactId>
-        <groupId>com.linkdin.webdev</groupId>
+        <artifactId>graduates</artifactId>
+        <groupId>co.dtech.graduates</groupId>
         <version>1.0.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>linkdin-backend</artifactId>
+    <artifactId>graduates-backend</artifactId>
 
     <properties>
         <main.basedir>${project.parent.basedir}</main.basedir>
@@ -15,8 +16,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.linkdin.webdev</groupId>
-            <artifactId>linkdin-frontend</artifactId>
+            <groupId>co.dtech.graduates</groupId>
+            <artifactId>graduates-frontend</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -70,7 +71,7 @@
     </dependencies>
 
     <build>
-        <finalName>linkdin-app</finalName>
+        <finalName>graduates-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -1,16 +1,14 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.Post;
+import co.dtech.graduates.model.PostComment;
 import co.dtech.graduates.model.PostInterest;
+import co.dtech.graduates.model.User;
 import co.dtech.graduates.repositories.PostCommentRepository;
 import co.dtech.graduates.repositories.PostInterestRepository;
 import co.dtech.graduates.services.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.Post;
-import co.dtech.graduates.model.PostComment;
-import co.dtech.graduates.model.User;
-import com.linkdin.app.services.*;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +17,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.servlet.http.HttpSession;
-import java.io.StringWriter;
-import java.util.*;
-
-import java.io.File;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -33,9 +28,10 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import java.io.File;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -97,7 +93,7 @@ public class ExportUsersToXMLController {
             Element mainRootElement = doc.createElement("users");
             doc.appendChild(mainRootElement);
 
-            for (User user: users) {
+            for (User user : users) {
                 Element userElement = doc.createElement("user");
                 userElement.setAttribute("id", Integer.toString(user.getId()));
                 // Name
@@ -137,7 +133,7 @@ public class ExportUsersToXMLController {
                 List<Post> posts = postService.getAllUserPosts(user.getId());
                 Element postsElement = doc.createElement("posts");
                 userElement.appendChild(postsElement);
-                for (Post post: posts) {
+                for (Post post : posts) {
                     // Post
                     Element postElement = doc.createElement("post");
                     postsElement.appendChild(postElement);
@@ -161,7 +157,7 @@ public class ExportUsersToXMLController {
                 Element commentsElement = doc.createElement("comments");
                 userElement.appendChild(commentsElement);
 
-                for (PostComment comment: comments) {
+                for (PostComment comment : comments) {
                     // Comment
                     Element commentElement = doc.createElement("comment");
                     commentsElement.appendChild(commentElement);
@@ -184,7 +180,7 @@ public class ExportUsersToXMLController {
                 Element interestsElement = doc.createElement("interests");
                 userElement.appendChild(interestsElement);
 
-                for (PostInterest interest: interests) {
+                for (PostInterest interest : interests) {
                     // Interest
                     Element interestElement = doc.createElement("interest");
                     interestsElement.appendChild(interestElement);
@@ -211,7 +207,7 @@ public class ExportUsersToXMLController {
             StreamResult sr = new StreamResult(new File(finalPath));
             StringWriter outWriter = new StringWriter();
 
-            StreamResult resultString = new StreamResult( outWriter );
+            StreamResult resultString = new StreamResult(outWriter);
 
             transformer.transform(source, sr); // to filesystem
             transformer.transform(source, resultString); // to string

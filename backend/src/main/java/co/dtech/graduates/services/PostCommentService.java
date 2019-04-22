@@ -39,7 +39,7 @@ public class PostCommentService {
         for (PostComment element : comments) {
             int targetUserID = element.getUserId();
             User targetUser = userService.returnUserByID(targetUserID);
-            CommentData commentData= new CommentData();
+            CommentData commentData = new CommentData();
             commentData.id = Integer.toString(targetUserID);
             commentData.name = targetUser.getName();
             commentData.surname = targetUser.getSurname();

@@ -1,11 +1,11 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.User;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.UserNetworkService;
 import co.dtech.graduates.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.User;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,11 +42,11 @@ public class HandleConnectRequestController {
             }
 
             User user = userService.returnUserByID(Integer.parseInt(userTargetProfileID));
-            if(user == null) {
+            if (user == null) {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
 
-            if(accepted.equals("1")) {
+            if (accepted.equals("1")) {
                 userNetworkService.acceptConnectRequest(Integer.parseInt(userTargetProfileID), Integer.parseInt(userIdentifiers.id));
             } else {
                 userNetworkService.declineConnectRequest(Integer.parseInt(userTargetProfileID), Integer.parseInt(userIdentifiers.id));

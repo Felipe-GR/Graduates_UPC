@@ -1,14 +1,16 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserRegister;
+import co.dtech.graduates.model.User;
 import co.dtech.graduates.services.ImageStorageService;
 import co.dtech.graduates.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserRegister;
-import co.dtech.graduates.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.security.MessageDigest;
@@ -23,15 +25,15 @@ public class RegisterController {
     ImageStorageService imageStorageService;
 
     @PostMapping(path = "/register")
-    public ResponseEntity <String> register(@RequestPart("user") String jsonUser,
-                                            @RequestPart("profileImage") MultipartFile profileImage) {
+    public ResponseEntity<String> register(@RequestPart("user") String jsonUser,
+                                           @RequestPart("profileImage") MultipartFile profileImage) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             UserRegister userRegister = objectMapper.readValue(jsonUser, UserRegister.class);
             System.err.println(userRegister.email);
 
             // Check for empty fields
-            if(userRegister.checkForEmptyFields(userRegister)) {
+            if (userRegister.checkForEmptyFields(userRegister)) {
                 System.out.println("EMPTY FIELDS FOUND");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                         .body("EMPTY_FIELDS");
@@ -80,14 +82,13 @@ public class RegisterController {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i< bytes.length; i++)
-            {
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             //Get complete hashed password in hex format
             generatedPassword = sb.toString();
             generatedPassword = generatedPassword.substring(0, 40);
-        }catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 

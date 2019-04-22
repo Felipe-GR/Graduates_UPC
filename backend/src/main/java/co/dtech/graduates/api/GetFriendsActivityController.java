@@ -1,10 +1,10 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.PostService;
 import co.dtech.graduates.services.UserNetworkService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.UserIdentifiers;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,8 +45,7 @@ public class GetFriendsActivityController {
                 List commentsList = postService.getCommentedPostsAndFriendsIDs(friendList, Integer.parseInt(userIdentifiers.id));
                 List result[] = {interestsList, commentsList};
                 return new ResponseEntity<Object>(result, HttpStatus.OK);
-            }
-            else {
+            } else {
                 return new ResponseEntity<Object>("null", HttpStatus.OK);
             }
         } catch (Exception ex) {

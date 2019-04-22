@@ -1,7 +1,7 @@
 package co.dtech.graduates.services;
 
-import co.dtech.graduates.repositories.NotificationsRepository;
 import co.dtech.graduates.model.Notifications;
+import co.dtech.graduates.repositories.NotificationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package co.dtech.graduates.api;
 
-import co.dtech.graduates.services.UserService;
 import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.model.User;
+import co.dtech.graduates.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,16 +30,16 @@ public class AuthCheckController {
         if (userIdentifiers.userToken == null || userIdentifiers.id == null) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-        if(session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME) == null){
+        if (session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME) == null) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         if (session.getAttribute(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME).equals(userIdentifiers.id) &&
                 session.getAttribute("userToken").equals(userIdentifiers.userToken)) {
             User user = userService.returnUserByID(Integer.parseInt(userIdentifiers.id));
-            if(user.getIsAdmin() == 0) {
+            if (user.getIsAdmin() == 0) {
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
-                return new ResponseEntity<>("1",HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>("1", HttpStatus.UNAUTHORIZED);
             }
         } else {
             System.err.println("user is NOT authenticated!");

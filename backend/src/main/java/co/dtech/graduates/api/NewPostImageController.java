@@ -1,13 +1,13 @@
 package co.dtech.graduates.api;
 
+import co.dtech.graduates.dto.NewPostData;
+import co.dtech.graduates.dto.UserIdentifiers;
+import co.dtech.graduates.model.User;
 import co.dtech.graduates.services.AuthRequestService;
 import co.dtech.graduates.services.ImageStorageService;
 import co.dtech.graduates.services.PostService;
 import co.dtech.graduates.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import co.dtech.graduates.dto.NewPostData;
-import co.dtech.graduates.dto.UserIdentifiers;
-import co.dtech.graduates.model.User;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,9 +33,9 @@ public class NewPostImageController {
 
     @PostMapping(path = "/postimage")
     public ResponseEntity<String> newPostImage(@RequestPart("userIdentifiers") String jsonUserIdentifiers,
-                                           @RequestPart("postData") String jsonPostData,
-                                           @RequestPart("image") MultipartFile image,
-                                           HttpSession session) {
+                                               @RequestPart("postData") String jsonPostData,
+                                               @RequestPart("image") MultipartFile image,
+                                               HttpSession session) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             UserIdentifiers userIdentifiers = objectMapper.readValue(jsonUserIdentifiers, UserIdentifiers.class);

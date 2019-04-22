@@ -1,8 +1,6 @@
 package co.dtech.graduates.services;
 
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,7 +39,7 @@ public class ImageStorageService {
 
         // Generate random name for the image
         String imageName = m1(20);
-        String imagePathName = "user_images/"+imageName;
+        String imagePathName = "user_images/" + imageName;
         File userImg = new File(imagePathName);
 
         try {

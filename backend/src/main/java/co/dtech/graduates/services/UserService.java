@@ -8,7 +8,10 @@ import co.dtech.graduates.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -137,8 +140,8 @@ public class UserService {
         return userInfo;
     }
 
-    public List listAllUsers(){
-        List<User> allUsers = userRepository.findAllByIsAdmin((byte)0);
+    public List listAllUsers() {
+        List<User> allUsers = userRepository.findAllByIsAdmin((byte) 0);
         ArrayList<UserBasicInfo> tempList = new ArrayList<UserBasicInfo>();
         for (User element : allUsers) {
             UserBasicInfo targetUserInfo = new UserBasicInfo();
@@ -152,9 +155,9 @@ public class UserService {
     }
 
     public Set<Integer> getAllNotConnectedUsers(int userID) {
-        List<User> allUsers = userRepository.findAllByIsAdmin((byte)0);
+        List<User> allUsers = userRepository.findAllByIsAdmin((byte) 0);
         Set<Integer> set = new HashSet<Integer>();
-        for (User user: allUsers) {
+        for (User user : allUsers) {
             set.add(user.getId());
         }
         List<Integer> connectedUsers = userNetworkService.getConnectedUsersIDsOnly(userID);

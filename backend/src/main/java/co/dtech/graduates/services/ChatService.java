@@ -28,11 +28,11 @@ public class ChatService {
     }
 
     public Chat getChatIDByUsers(Integer userID1, Integer userID2) {
-        Chat chat =  chatRepository.findByUser1AndUser2(userID1, userID2);
-        if(chat != null) {
+        Chat chat = chatRepository.findByUser1AndUser2(userID1, userID2);
+        if (chat != null) {
             return chat;
         }
-        chat =  chatRepository.findByUser1AndUser2(userID2, userID1);
+        chat = chatRepository.findByUser1AndUser2(userID2, userID1);
         return chat;
     }
 

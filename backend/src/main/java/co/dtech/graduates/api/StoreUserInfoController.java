@@ -1,11 +1,11 @@
 package co.dtech.graduates.api;
 
-import co.dtech.graduates.services.AuthRequestService;
-import co.dtech.graduates.services.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import co.dtech.graduates.dto.UserIdentifiers;
 import co.dtech.graduates.dto.UserInfo;
 import co.dtech.graduates.model.User;
+import co.dtech.graduates.services.AuthRequestService;
+import co.dtech.graduates.services.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +32,8 @@ public class StoreUserInfoController {
             JSONObject userObj = obj.getJSONObject("userIdentifiers");
             JSONObject userInfoRequestObj = obj.getJSONObject("userInfoUpdate");
             UserIdentifiers userIdentifiers = objectMapper.readValue(userObj.toString(), UserIdentifiers.class);
-            UserInfo userInfo = objectMapper.readValue(userInfoRequestObj.toString(), UserInfo.class);;
+            UserInfo userInfo = objectMapper.readValue(userInfoRequestObj.toString(), UserInfo.class);
+            ;
 
             // Authenticate user
             if (!authRequestService.authenticateRequest(userIdentifiers, session)) {
