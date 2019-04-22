@@ -71,7 +71,7 @@ Each user's job advert page contains job adverts that are based on the personal 
 ### TLS
 We used a cerificate that is signed from [Let's Encrypt](https://letsencrypt.org/) in order to encrypt all the traffic between the clients and the server.
 
-##Extra features
+## Extra features
 
 ### Post Visibility
 Although it was not in the description of functional requirements, we have added a special feature in the publications. All publications can be public or private. With the attribute 'public' the publication can be visible from all. On the contrary, with the "private" attribute, the publication is only visible within the user's network.
