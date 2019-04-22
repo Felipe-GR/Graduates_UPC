@@ -66,7 +66,7 @@ The post recommendation service executes an algorithm that is based in k-NN clas
 ### Job Recommendation Algorithm
 Each user's job advert page contains job adverts that are based on the personal information of the user. After the stopwords have been filtered out, the algorithm selects the ads that have the most similar content with the user's info.
 
-##Certificates
+## Certificates
 
 ### TLS
 We used a cerificate that is signed from [Let's Encrypt](https://letsencrypt.org/) in order to encrypt all the traffic between the clients and the server.
