@@ -1,0 +1,14 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="admin-container">
+  <div *ngFor="let x of users">
+    <div class="user-info">
+      <input class="checkbox" type="checkbox" id="{{x.id}}" name="feature" value="scales" />
+      <a target="_blank" rel="noopener noreferrer" class="btn user-identifiers" [routerLink]="['/users', x.id]">
+        <img class="rounded-circle profile-image" src="{{x.image}}">
+        <span class="user-name"> {{ x.name }} {{ x.surname }} </span>
+      </a>
+      <button class="btn export" type="button" name="{{x.id}}" (click)="exportUser(x.id)">Export this user to xml</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

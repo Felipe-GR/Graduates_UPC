@@ -1,0 +1,141 @@
+.dropdown {
+    display: inline;
+}
+
+.dropdown-menu {
+    margin-top: 13px;
+    height: auto;
+    max-height: 500px;
+}
+
+.dropdown-menu:after {
+    content: '';
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ffffff;
+    position: absolute;
+    top: -5px;
+    right: 16px;
+}
+
+.wrapper {
+    height: auto;
+    max-height: 490px;
+    overflow-x: hidden;
+    border-radius: 5px;
+}
+
+.profile-image {
+    height: 50px;
+    width: 50px;
+}
+
+.btn.btn-secondary.icon-button {
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn.btn-secondary.icon-button:focus,
+.btn.btn-secondary.icon-button:hover {
+    border: none;
+    background: none;
+    color: #006394;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dropdown-item {
+    display: table;
+    width: 350px;
+    overflow: inherit;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus {
+    background-color: transparent;
+}
+
+.btn.profile {
+    font-size: 13pt;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: transparent;
+    color: #006394;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+}
+
+.btn.profile:hover,
+.btn.profile:focus,
+.btn.profile:active {
+    background-color: transparent;
+    color: #00334d;
+}
+
+.btn.check-button {
+    background-color: transparent;
+    color: #009614;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+}
+
+.btn.check-button:hover,
+.btn.check-button:focus,
+.btn.check-button:active {
+    background-color: transparent;
+    color: #004d0a;
+}
+
+.btn.ignore-button {
+    background-color: transparent;
+    color: #bb0101;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+}
+
+.btn.ignore-button:hover,
+.btn.ignore-button:focus,
+.btn.ignore-button:active {
+    background-color: transparent;
+    color: #800000;
+}
+
+.border {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-top: 1px solid #000000;
+}
+
+.inline {
+    display: inline-block;
+    cursor: default;
+    margin: 0 2px 0 2px;
+}
+
+.notification-time {
+    margin: 0 10px 10px 25px;
+    font-size: 9pt;
+    color: #6d6b6b;
+}
+
+@media screen and (max-width: 1000px) {
+    .dropdown-menu:after {
+        content: '';
+        display: inline-block;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        position: absolute;
+        top: -5px;
+        right: 10px;
+    }
+}

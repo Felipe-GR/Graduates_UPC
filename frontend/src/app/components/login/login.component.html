@@ -1,0 +1,29 @@
+<img class="background-img" src="../../../assets/images/welcome_page_image_16_9.jpg" />
+<div class="layer">
+</div>
+<div class="container">
+  <div class="card card-container">
+    <img id="logo-img" class="logo-img-card" src="../../../assets/images/linkDIn.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin" #login_Form="ngForm" (ngSubmit)="login_Form.valid && loginUser()" novalidate>
+      <input class="form-control" id="inputEmail" name="email" type="email" #email_form="ngModel" placeholder="Email address" ngModel
+        email required autofocus [(ngModel)]="email" maxlength="45">
+      <div *ngIf="email_form.errors && (email_form.dirty || email_form.touched)" class="alert-error"></div>
+      <input class="form-control" id="password" name="password" type="password" #pass_form="ngModel" placeholder="Password" required
+        [(ngModel)]="password" maxlength="45">
+      <div *ngIf="pass_form.errors && (pass_form.dirty || pass_form.touched)" class="alert-error"></div>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+    </form>
+    <a class="btn btn-secondary register" [routerLink]="['/register']">
+      New to linkDIn? Register now!
+    </a>
+  </div>
+  <div *ngIf="hasError">
+    <div class="alert alert-danger alert-dismissible fade in show" id="alert1" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+      {{ alerts }}
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

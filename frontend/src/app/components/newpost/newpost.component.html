@@ -1,0 +1,39 @@
+<div class="new-post-box">
+  <label class="new-post-label">New Post</label>
+  <div class="input-group text-box">
+    <textarea class="form-control text-post" [(ngModel)]="postContent" name="content" maxlength="280"></textarea>
+  </div>
+  <div class="new-post-controls">
+    <label class="checkbox-label">
+      <input type="checkbox" [(ngModel)]="isAd" name="advertisement"> Job Advertisement
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" [(ngModel)]="isPublic" name="public"> Make this post public
+    </label>
+    <div class="input-group upload-image">
+      <label class="input-group-btn">
+        <div class="input-group-prepend">
+          <span class="btn btn-primary upload-button">
+            <fa-icon [icon]="['fas', 'image']"></fa-icon>
+            <input class="form-control image-up" id="my-file-selector" name="image" type="file" accept="image/*" style="display:none;"
+              onchange="$('#upload-file-info').val($(this).val().replace(/C:\\fakepath\\/i, ''));" (change)="handleFileInput($event.target.files)"
+              ng-model="filepath">
+          </span>
+        </div>
+      </label>
+      <input type="text" class="form-control upload-image-info" id="upload-file-info" placeholder="Upload an Image"
+        [(ngModel)]="fileName" disabled>
+    </div>
+  </div>
+  <div class="center-button">
+    <button [disabled]="!postContent" class="btn btn-info btn-lg new-post-button" type="button" (click)="share()">
+      Share
+    </button>
+  </div>
+</div>
+<div *ngIf="postShared">
+  <div class="alert alert-success alert-dismissible fade in show" id="alert-post" role="alert">
+    <button id="close-alert" type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+    {{ alerts }}
+  </div>
+</div>

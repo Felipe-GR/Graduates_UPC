@@ -1,0 +1,55 @@
+<div class="register-container">
+  <img class="background-img" src="../../../assets/images/welcome_page_image_16_9.jpg" />
+  <div class="layer">
+  </div>
+  <div class="container">
+    <div class="card card-container">
+      <img id="logo-img" class="logo-img-card" src="../../../assets/images/linkDIn.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+      <form class="form-signup" #regForm="ngForm" (ngSubmit)="regForm.valid && registerUser()" novalidate>
+        <input class="form-control" id="inputEmail" name="email" type="email" #email_form="ngModel" placeholder="Email address" ngModel
+          email required autofocus [(ngModel)]="email" maxlength="45">
+        <div *ngIf="email_form.errors && (email_form.dirty || email_form.touched)" class="alert-error"></div>
+        <input class="form-control" id="password_1" name="password_1" type="password" #pass_1_form="ngModel" placeholder="Password"
+          required [(ngModel)]="password_1" maxlength="45">
+        <div *ngIf="pass_1_form.errors && (pass_1_form.dirty || pass_1_form.touched)" class="alert-error"></div>
+        <input class="form-control" id="password_2" name="password_2" type="password" #pass_2_form="ngModel" placeholder="Confirm Password"
+          pattern={{password_1}} required [(ngModel)]="password_2" maxlength="45">
+        <div *ngIf="pass_2_form.errors && (pass_2_form.dirty || pass_2_form.touched)" class="alert-error"></div>
+        <input class="form-control" id="firstName" name="firstName" type="text" #firstname_form="ngModel" placeholder="First Name"
+          required [(ngModel)]="firstName" maxlength="45">
+        <div *ngIf="firstname_form.errors && (firstname_form.dirty || firstname_form.touched)" class="alert-error"></div>
+        <input class="form-control" id="lastName" name="lastName" type="text" #lastname_form="ngModel" placeholder="Last Name" required
+          [(ngModel)]="lastName" maxlength="45">
+        <div *ngIf="lastname_form.errors && (lastname_form.dirty || lastname_form.touched)" class="alert-error"></div>
+        <input class="form-control" id="phoneNumber" name="phoneNumber" type="tel" #phone_form="ngModel" placeholder="Phone Number"
+          required [(ngModel)]="phoneNumber" maxlength="45">
+        <div *ngIf="phone_form.errors && (phone_form.dirty || phone_form.touched)" class="alert-error"></div>
+        <div class="input-group upload-image">
+          <label class="input-group-btn">
+            <span class="btn btn-primary upload-button">
+              <fa-icon [icon]="['fas', 'upload']"></fa-icon>
+              <input class="form-control image-up" id="my-file-selector" name="image" type="file" accept="image/*" style="display:none;"
+                onchange="$('#upload-file-info').val($(this).val().replace(/C:\\fakepath\\/i, ''));" (change)="handleFileInput($event.target.files)" required
+                ng-model="filepath">
+            </span>
+          </label>
+          <input type="text" class="form-control upload-image-info" id="upload-file-info" placeholder="Upload Profile Image" disabled>
+        </div>
+        <div *ngIf="!imageUploaded" class="text-center alert-error image-upload-alert">Image required</div>
+        <div class="text-req text-center">
+          All fields are required.
+        </div>
+        <button class="btn btn-lg btn-primary btn-block btn-signup" type="submit">Register</button>
+        <a class="btn btn-secondary login-button" [routerLink]="['/login']">Log In</a>
+      </form>
+    </div>
+    <div *ngIf="hasError">
+      <div class="alert alert-danger alert-dismissible fade in show" id="alert1" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+        {{ alerts }}
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

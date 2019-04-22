@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="home-content">
+  <app-newpost (messageEvent)="recieveRefreshCommand($event)"></app-newpost>
+  <div class="btn-group">
+    <span class="btn btn-primary change-view-button" disabled>{{ pageType }}</span>
+    <button type="button" class="btn btn-primary dropdown-toggle change-view-button-hoverable" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" role="menu">
+      <li><button class="btn dropdown-elem" id="selection1" (click)="changeHomeType(1)">Most Recent</button></li>
+      <li><button class="btn dropdown-elem" id="selection2" (click)="changeHomeType(2)">Recommended for you</button></li>
+    </div>
+  </div>
+  <div *ngIf="renderMostRecent">
+    <app-friendsposts></app-friendsposts>
+  </div>
+  <div *ngIf="renderRecommended">
+    <app-recommendedposts></app-recommendedposts>
+  </div>
+</div>
+<app-footer></app-footer>

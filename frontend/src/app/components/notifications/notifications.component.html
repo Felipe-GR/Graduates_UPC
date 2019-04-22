@@ -1,0 +1,49 @@
+<div class="dropdown">
+  <button type="button" class="btn btn-secondary icon-button" (click)="renderNotifications()" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    <fa-icon [icon]="['fas', 'bell']"></fa-icon>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" id="menu">
+    <div class="wrapper">
+      <div *ngIf="render">
+        <div *ngFor="let x of pendingRequests; let i = index">
+          <div *ngIf="totalPendingRequests > 0">
+            <div class="dropdown-item">
+              <a class="btn btn-secondary profile" [routerLink]="['/users', x.id]">
+                <img class="rounded-circle profile-image" src="{{x.image}}"> {{ x.name }} {{ x.surname }} </a>
+              <button class="btn btn-secondary check-button" (click)="acceptConnectRequest(i)">
+                <fa-icon [icon]="['fas', 'check']"></fa-icon>
+              </button>
+              <button class="btn btn-secondary ignore-button" (click)="declineConnectRequest(i)">
+                <fa-icon [icon]="['fas', 'times']"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="totalPendingRequests == 0">
+          <div class="dropdown-item">No Connect Requests!</div>
+        </div>
+        <div class="border"></div>
+        <div *ngFor="let x of notifications; let i = index">
+          <div *ngIf="totalNotifications > 0">
+            <div class="dropdown-item">
+              <div class="inline">
+                <app-userbasicinfo userIDInfo="{{x.notifiedByUser}}"></app-userbasicinfo>
+              </div>
+              <label *ngIf="x.interest === 1" class="inline"> is interested in your </label>
+              <label *ngIf="x.comment === 1" class="inline"> commented on your </label>
+              <label *ngIf="x.jobapply === 1" class="inline"> applied at your job advert </label>
+              <a [routerLink]="['/posts', x.postId]" class="inline">post</a>
+            </div>
+            <div class="notification-time">
+              <label>{{ x.timestamp | date:'d MMMM y, h:mm a' }}</label>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="totalNotifications == 0">
+          <div class="dropdown-item">No Notifications!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

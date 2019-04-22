@@ -1,0 +1,8 @@
+<app-navbar></app-navbar>
+<div class="adverts-content">
+  <div *ngFor="let x of adverts; let i = index">
+    <app-post postId="{{x.id}}" userIdPost="{{x.userId}}" isAd="{{x.isAdvertisment}}" isPublic="{{x.isPublic}}" date="{{x.timestamp| date:'d MMMM y, h:mm a'}}"
+      content="{{x.content}}" hasImage="{{x.hasImage}}" image="{{x.image}}"></app-post>
+  </div>
+</div>
+<app-footer></app-footer>

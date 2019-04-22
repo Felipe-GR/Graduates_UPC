@@ -1,0 +1,9 @@
+<div *ngFor="let x of posts; let i=index">
+  <div *ngIf="renderPosts && i<showedPosts">
+    <app-post postId="{{x.id}}" userIdPost="{{x.userId}}" isAd="{{x.isAdvertisment}}" isPublic="{{x.isPublic}}" date="{{x.timestamp| date:'d MMMM y, h:mm a'}}"
+      content="{{x.content}}" hasImage="{{x.hasImage}}" image="{{x.image}}"></app-post>
+  </div>
+</div>
+<div *ngIf="loadMoreButton" class="load-button-container">
+  <button class="btn btn-secondary load-button" type="button" (click)="showPosts()">Load More Posts</button>
+</div>

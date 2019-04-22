@@ -1,0 +1,56 @@
+.user-info {
+    margin: 20px 0 15px 0;
+}
+
+.chathistory-content {
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 10px 0 10px;
+    height: 200px;
+    overflow-y: scroll;
+    height: calc(100vh - 270px);
+    flex-direction: column;
+}
+
+.message-time {
+    margin: 10px 0 0 0;
+    font-size: 9pt;
+    color: #6d6b6b;
+}
+
+.chat-bubble {
+    position: relative;
+    margin: 15px auto 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.white {
+    background-color: #e2e2e2;
+}
+
+.blue {
+    background-color: #80c6e9;
+}
+
+.chat-bubble.blue:after {
+    border-left: 20px solid transparent;
+    border-top: 20px solid #80c6e9;
+    bottom: -20px;
+    content: "";
+    position: absolute;
+    right: 20px;
+    overflow-x: hidden;
+}
+
+.chat-bubble.white:after {
+    border-right: 20px solid transparent;
+    border-top: 20px solid #e2e2e2;
+    bottom: -20px;
+    content: "";
+    position: absolute;
+    left: 20px;
+    overflow-x: hidden;
+}

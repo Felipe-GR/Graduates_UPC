@@ -1,0 +1,19 @@
+<div *ngIf="render" class="d-flex justify-content-center user-info">
+  <app-userbasicinfo userIDInfo="{{chatUserId}}"></app-userbasicinfo>
+</div>
+<div #chathistoryContent class="chathistory-content d-flex justify-center">
+  <div *ngFor="let x of chatHistory">
+    <div *ngIf="x.senderUserId == userId" class="chat-bubble white">
+      {{ x.messageContent }}
+      <div class="message-time">
+        <label>{{ x.timestamp | date:'d MMMM y, h:mm a' }}</label>
+      </div>
+    </div>
+    <div *ngIf="x.senderUserId != userId" class="chat-bubble blue">
+      {{ x.messageContent }}
+      <div class="message-time">
+        <label>{{ x.timestamp | date:'d MMMM y, h:mm a' }}</label>
+      </div>
+    </div>
+  </div>
+</div>

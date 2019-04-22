@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="network-content">
+  <div *ngIf="totalUsers == 0" class="no-users-message">
+    No Connected Users!
+  </div>
+  <div *ngIf="totalUsers > 0">
+    <div class="row">
+      <div *ngFor="let x of users; let i = index">
+        <div class="user-element">
+          <a class="btn" [routerLink]="['/users', x.id]">
+            <img class="rounded-circle profile-image" src="{{x.image}}">
+          </a>
+          <app-chatwithuser userToChat="{{x.id}}"></app-chatwithuser>
+          <a class="btn user-name" [routerLink]="['/users', x.id]">
+            {{ x.name }} {{ x.surname }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,162 @@
+<div class="post-box">
+  <div class="post-details">
+    <a class="btn user-identifiers" [routerLink]="['/users', userIdPost]">
+      <img class="rounded-circle profile-image" src="{{userImage}}">
+      <span class="user-name"> {{ userName }} {{ userSurname }} </span>
+    </a>
+    <a class="btn timestamp" [routerLink]="['/posts', postId]"> {{ date }} </a>
+    <div class="post-attributes">
+      <span *ngIf="isAd == 1">
+        <fa-icon class="icon-post" [icon]="['fas', 'briefcase']"></fa-icon>
+      </span>
+      <span *ngIf="isPublic == 1">
+        <fa-icon class="icon-post" [icon]="['fas', 'globe-africa']"></fa-icon>
+      </span>
+      <span *ngIf="isPublic == 0">
+        <fa-icon class="icon-post" [icon]="['fas', 'users']"></fa-icon>
+      </span>
+    </div>
+  </div>
+  <div class="post-content">{{ content }}</div>
+  <div *ngIf="renderImage" class="d-flex justify-content-center">
+    <div class="image-container">
+      <img class="image-post" src="{{imageBytes}}" (click)="openModal()">
+      <div id="image-modal-{{postId}}" class="modal image-modal">
+        <span class="image-close cursor" (click)="closeImageModal()">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </span>
+        <div id="image-modal-content-{{postId}}" class="modal-content image-modal-content">
+          <img id="content-image-{{postId}}" src="{{imageBytes}}" style="width:100%">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="post-controls">
+    <button *ngIf="!isInterested" class="btn btn-info btn-lg interact-button" type="button" (click)="interested()">
+      <fa-icon [icon]="['far', 'star']"></fa-icon>
+      <div class="button-text">Interested</div>
+    </button>
+    <button *ngIf="isInterested" class="btn btn-info btn-lg interact-button" type="button">
+      <fa-icon [icon]="['fas', 'star']"></fa-icon>
+      <div class="button-text">Interested</div>
+    </button>
+    <button class="btn btn-info btn-lg interact-button" type="button" (click)="viewComments()">
+      <fa-icon [icon]="['far', 'comment-alt']"></fa-icon>
+      <div class="button-text">Comment</div>
+    </button>
+    <button *ngIf="renderApplyButton && applied == false" class="btn btn-info btn-lg interact-button" type="button"
+      (click)="apply()">
+      <fa-icon [icon]="['far', 'file-alt']"></fa-icon>
+      <div class="button-text">Apply</div>
+    </button>
+    <button *ngIf="renderApplyButton && applied == true" class="btn btn-info btn-lg interact-button" type="button">
+      <fa-icon [icon]="['fas', 'file-alt']"></fa-icon>
+      <div class="button-text">Applied</div>
+    </button>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button *ngIf="numberOfInterests == 1" type="button" class="btn btn-primary interested-people-button" (click)="getInterestedUsers()">
+      {{ numberOfInterests }} person found that post interesting
+    </button>
+    <button *ngIf="numberOfInterests > 1" type="button" class="btn btn-primary interested-people-button" (click)="getInterestedUsers()">
+      {{ numberOfInterests }} people found that post interesting
+    </button>
+  </div>
+  <button type="button" id="interest-modal-button-{{postId}}" class="btn btn-primary" data-toggle="modal" hidden>
+  </button>
+  <div class="modal fade modal-users" id="interest-modal-{{postId}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Interested Users</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngFor="let x of interestedUsers">
+            <div class="modal-element" data-dismiss="modal" aria-label="Close">
+              <a [routerLink]="['/users', x.id]">
+                <img class="rounded-circle profile-image" src="{{x.image}}"> {{ x.name }} {{ x.surname }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!renderApplyButton" class="dropdown">
+    <div class="d-flex justify-content-center">
+      <button *ngIf="numberOfApplications == 1" type="button" class="btn btn-primary interested-people-button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAppliedUsers()">
+        {{ numberOfApplications }} person applied for this job
+      </button>
+      <button *ngIf="numberOfApplications > 1" type="button" class="btn btn-primary interested-people-button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getAppliedUsers()">
+        {{ numberOfApplications }} people applied for this job
+      </button>
+    </div>
+    <button type="button" id="applications-modal-button-{{postId}}" class="btn btn-primary" data-toggle="modal" hidden>
+    </button>
+    <div class="modal fade modal-users" id="applications-modal-{{postId}}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Applied Users</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div *ngFor="let x of appliedUsers">
+              <div class="modal-element" data-dismiss="modal" aria-label="Close">
+                <a [routerLink]="['/users', x.id]" data-dismiss="modal">
+                  <img class="rounded-circle profile-image" src="{{x.image}}"> {{ x.name }} {{ x.surname }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-primary interested-people-button" role="button" type="button" *ngIf="numberOfComments == 1"
+      (click)="viewComments()">
+      {{ numberOfComments }} comment
+    </button>
+    <button class="btn btn-primary interested-people-button" role="button" type="button" *ngIf="numberOfComments > 1"
+      (click)="viewComments()">
+      {{ numberOfComments }} comments
+    </button>
+  </div>
+  <hr>
+  <div *ngIf="showComments">
+    <div *ngFor="let x of comments">
+      <div class="comment-element">
+        <a [routerLink]="['/users', x.id]">
+          <img class="rounded-circle profile-image" src="{{x.image}}"> {{ x.name }} {{ x.surname }}
+        </a>
+        <div class="comment-content">
+          {{ x.comment }}
+        </div>
+        <div class="comment-time">
+          <label>{{ x.timestamp | date:'d MMMM y, h:mm a' }}</label>
+        </div>
+        <div class="border"></div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="input-group post-comment">
+      <input class="form-control comment-box" id="comment-box" type="text" placeholder="Comment" aria-label="post-comment"
+        [(ngModel)]="comment" maxlength="280">
+      <span class=" input-group-btn">
+        <button *ngIf="comment" [@fadeInOut] class="btn btn-info btn-lg post-comment-button" type="button" (click)="postComment()">
+          Post
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

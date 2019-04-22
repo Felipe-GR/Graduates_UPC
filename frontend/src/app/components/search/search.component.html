@@ -1,0 +1,33 @@
+<div class="search-bar">
+  <div class="input-group">
+    <input class="form-control search" type="text" placeholder="Search Users" aria-label="Search Users" [(ngModel)]="userQuery">
+    <span class="input-group-btn">
+      <div class="dropdown">
+        <button [disabled]="!userQuery" class="btn btn-info btn-lg search-button" type="button" (click)="search()" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <fa-icon [icon]="['fas', 'search']"></fa-icon>
+        </button>
+        <div class="dropdown-menu dropdown-menu-center" id="menu">
+          <div *ngIf="totalResults > 0">
+            <div *ngFor="let x of results; let i = index">
+              <div *ngIf="i < showedResults">
+                <a class="dropdown-item" [routerLink]="['/users', x.id]">
+                  <img class="rounded-circle profile-image" src="{{x.image}}"> {{ x.name }} {{ x.surname }}
+                </a>
+              </div>
+            </div>
+            <div *ngIf="showedResults < totalResults">
+              <div class="border"></div>
+              <div class="show-more-button-container">
+                <button class="btn btn-secondary show-more-button" role="button" type="button" (click)="$event.stopPropagation(); showMoreResults()">Load More</button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="totalResults == 0">
+            <div class="dropdown-item">No Results!</div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>

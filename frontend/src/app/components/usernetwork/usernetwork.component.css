@@ -1,0 +1,36 @@
+.network-content {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.user-element {
+    display: inline-block;
+    margin: 20px 0 10px 10px;
+    font-size: 0;
+}
+
+.btn.user-name {
+    position: relative;
+    font-size: 14pt;
+    margin-bottom: 50px;
+    right: 50px;
+    border: none;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.profile-image {
+    height: 90px;
+    width: 90px;
+}
+
+.no-users-message {
+  text-align: center;
+  padding-top: 100px;
+  font-size: 30pt;
+  color: #cacaca;
+}

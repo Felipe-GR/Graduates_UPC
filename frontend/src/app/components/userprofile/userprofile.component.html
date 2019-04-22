@@ -1,0 +1,55 @@
+<div *ngIf="!hideElements">
+  <app-navbar></app-navbar>
+</div>
+<div class="profile-content">
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <img class="rounded-circle profile-image" src="{{profileImage}}">
+    <div class="user-info">
+      <div class="user-name">
+        {{ profileFirstName }} {{ profileSurname }}
+      </div>
+      <div class="user-personal-info row-fluid">
+        <div *ngIf="profilePhoneNumber">Phone Number: {{ profilePhoneNumber }}</div>
+        <div *ngIf="profileCity">City: {{ profileCity }}</div>
+        <div *ngIf="profileProfession">Profession: {{ profileProfession }}</div>
+        <div *ngIf="profileEducation">Education: {{ profileEducation }}</div>
+        <div *ngIf="profileCompany">Company: {{ profileCompany }}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="networkButton" class="connect-buttons-container">
+    <a class="btn btn-secondary request-connect-button" [routerLink]="['network']">Network</a>
+    <div>
+      <app-chatwithuser userToChat="{{profileUserID}}"></app-chatwithuser>
+    </div>
+  </div>
+  <div *ngIf="!hideElements">
+    <div *ngIf="requestConnectButton" class="connect-buttons-container">
+      <button class="btn btn-secondary request-connect-button" type="button" (click)="sendConnectRequest()">
+        <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+        Connect
+      </button>
+    </div>
+    <div *ngIf="connectPendingButton" class="connect-buttons-container">
+      <button class="btn btn-outline-primary disabled-connect-button" type="button" disabled>
+        <fa-icon [icon]="['fas', 'user-clock']"></fa-icon>
+        Connect Request Pending
+      </button>
+    </div>
+    <div *ngIf="connectedButton" class="connect-buttons-container">
+      <button class="btn btn-outline-primary disabled-connect-button" type="button" disabled>
+        <fa-icon [icon]="['fas', 'user-check']"></fa-icon>
+        Connected
+      </button>
+    </div>
+  </div>
+  <div *ngFor="let x of posts">
+    <app-post postId="{{x.id}}" userIdPost="{{profileUserID}}" isAd="{{x.isAdvertisment}}" isPublic="{{x.isPublic}}"
+      date="{{x.timestamp| date:'d MMMM y, h:mm a'}}" content="{{x.content}}" hasImage="{{x.hasImage}}" image="{{x.image}}"></app-post>
+  </div>
+  <div *ngIf="loadMoreButton" class="load-button-container">
+    <button class="btn btn-secondary load-button" type="button" (click)="getPosts()">Load More Posts</button>
+  </div>
+</div>
+
+<app-footer></app-footer>

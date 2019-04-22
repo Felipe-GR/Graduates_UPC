@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="chat-content">
+  <div id="mySidenav" class="sidenav open">
+    <div *ngFor="let x of userIDsChats; let i = index">
+      <a [routerLink]="['/chat', chatIDs[i]]">
+        <app-userbasicinfo userIDInfo="{{x}}"></app-userbasicinfo>
+      </a>
+    </div>
+  </div>
+  <div id="main">
+    <div *ngIf="showConversation">
+      <app-chathistory [chatHistory]="chatHistory" chatID="{{chatID}}"></app-chathistory>
+      <div class="d-flex justify-content-center message-form">
+        <div class="input-group">
+          <input class="form-control input-group-prepend send-message-box" id="comment-box" type="text" aria-label="post-comment"
+            [(ngModel)]="message" maxlength="280">
+          <div class="input-group-append">
+            <button [disabled]="!message" class="btn btn-info btn-lg send-message-button " type="button" (click)="sendMessage()">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

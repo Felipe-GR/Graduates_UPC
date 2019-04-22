@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}

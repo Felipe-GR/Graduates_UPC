@@ -1,0 +1,267 @@
+.post-box {
+    margin: 15px auto;
+    padding: 10px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+}
+
+.post-details {
+    font-size: 0;
+}
+
+.btn.user-identifiers {
+    border: none;
+    outline: none !important;
+    box-shadow: none;
+    color: #006394;
+    background-color: transparent;
+}
+
+.btn.user-identifiers:hover,
+.btn.user-identifiers:active,
+.btn.user-identifiers:focus {
+    background-color: transparent;
+    color: #00334d;
+}
+
+.profile-image {
+    height: 50px;
+    width: 50px;
+}
+
+.user-name {
+    position: relative;
+    padding-left: 5px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.btn.timestamp {
+    position: absolute;
+    left: 10px;
+    margin-top: 60px;
+    border: none;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #00334d;
+    font-size: 11pt;
+    font-weight: lighter;
+}
+
+.post-content {
+    margin: 40px 0 0 10px;
+    padding: 5px;
+    white-space: pre;
+}
+
+.post-attributes {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    font-size: 0;
+}
+
+.icon-post {
+    padding: 3px;
+    font-size: 16pt;
+    color: #00334d85;
+}
+
+.image-container {
+    padding: 10px;
+}
+
+.image-post {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.button-text {
+    display: inline-block;
+    font-size: 14pt;
+}
+
+.post-controls {
+    text-align: center;
+}
+
+.interact-button {
+    margin: -10px 60px -10px 60px;
+    color: #006394;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    font-size: 20pt;
+}
+
+.btn.interact-button:hover,
+.btn.interact-button:active {
+    color: #00334d;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.post-comment {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.form-control.comment-box {
+    outline: none !important;
+    box-shadow: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: none;
+    height: 45px;
+}
+
+.form-control.comment-box:focus {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.post-comment-button {
+    background-color: #006394;
+    border-color: inherit;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    font-size: 13pt;
+    height: 45px;
+}
+
+.btn.post-comment-button:hover,
+.btn.post-comment-button:focus,
+.btn.post-comment-button:active {
+    background-color: #00334d;
+    box-shadow: none;
+    border: none;
+    z-index: 99999;
+}
+
+.btn.post-comment-button:disabled {
+    background-color: #006394;
+}
+
+.btn.interested-people-button,
+.btn.interested-people-button:active,
+.btn.interested-people-button:hover,
+.btn.interested-people-button:focus {
+    margin-top: 10px;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #6d6b6b;
+    background: transparent;
+    border-color: inherit;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-users {
+    top: 20%;
+    max-height: calc(100vh - 100px);
+}
+
+.modal-dialog {
+    overflow-y: initial !important
+}
+
+.modal-body {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.modal-element {
+    margin: 10px 0 10px 10px;
+}
+
+.comment-element {
+    margin: 0 0 15px 0;
+}
+
+.comment-content {
+    display: inline-block;
+    margin: 0 0 15px 20px;
+}
+
+.comment-time {
+    margin: 5px 0 10px 0;
+    font-size: 9pt;
+    color: #6d6b6b;
+}
+
+@media screen and (max-width: 1390px) {
+    .post-comment {
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .post-comment {
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .post-comment {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .button-text {
+        display: none;
+    }
+    .interact-button {
+        margin: -10px 10px -10px 10px;
+    }
+}
+
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.863);
+}
+
+/* Modal Content */
+
+.image-modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    max-width: 1200px;
+    height: auto;
+    overflow-y: hidden;
+}
+
+/* The Close Button */
+
+.image-close {
+    color: rgb(204, 204, 204);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+}
+
+.image-close:hover,
+.image-close:focus {
+    color: #a0a0a0;
+    text-decoration: none;
+    cursor: pointer;
+}

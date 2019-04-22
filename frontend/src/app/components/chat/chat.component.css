@@ -1,0 +1,110 @@
+.chat-content {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+.sidenav {
+    height: calc(100vh - 112px);
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    padding-top: 30px;
+    background-color: #e4e4e4;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    font-size: 16px;
+    color: #00334d;
+    display: block;
+    transition: 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.sidenav a:hover {
+    color: #006394;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+}
+
+#main {
+    margin-left: 250px;
+    transition: margin-left .5s;
+    padding-left: 20px;
+}
+
+.message-form{
+    margin: 20px 10px 10px 10px;
+}
+
+.send-message {
+    position: relative;
+    border-radius: 3px;
+    border-color: inherit;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    height: 45px;
+}
+
+.send-message-box {
+    border-radius: 3px;
+    border-color: inherit;
+    outline: none !important;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    height: 45px;
+}
+
+.send-message-button {
+    background-color: #006394;
+    outline: none !important;
+    box-shadow: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 13pt;
+    height: 45px;
+}
+
+.btn.send-message-button:hover,
+.btn.send-message-button:focus,
+.btn.send-message-button:active {
+    background-color: #00334d;
+    box-shadow: none;
+    border: none;
+}
+
+.btn.send-message-button:disabled {
+    background-color: #006394;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+        margin: 0 0 0 0;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .sidenav {
+        width: 100px;
+    }
+    .sidenav a {
+        padding: 8px 8px 8px 8px;
+        text-align: center;
+    }
+    #main {
+        margin-left: 100px;
+    }
+}

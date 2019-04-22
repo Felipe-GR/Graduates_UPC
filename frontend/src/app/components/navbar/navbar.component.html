@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
+    <div class="logo">
+      <a class="logo-link" [routerLink]="['/home']">
+        <img id="logo-img" class="navbar-brand full-logo" src="../../../assets/images/linkDIn_light.png"/>
+        <img id="logo-img" class="navbar-brand small-logo" src="../../../assets/images/linkDIn_small.png"/>
+      </a>
+    </div>
+    <div class="navbar-nav nav-item mr-4 ml-5">
+      <app-search></app-search>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item text-center">
+          <a class="btn btn-secondary no-background-button navbar-btn" role="button" [routerLink]="['/home']">
+            Home Page
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="btn btn-secondary no-background-button navbar-btn" role="button" [routerLink]="['/users',userID,'network']">
+            Network
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="btn btn-secondary no-background-button navbar-btn" role="button" [routerLink]="['/adverts']">
+            Job Adverts
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li class="nav-item text-center">
+          <app-notifications></app-notifications>
+        </li>
+        <li class="nav-item text-center">
+          <a role="button" class="btn btn-secondary icon-button navbar-btn" [routerLink]="['/chat']">
+            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="btn btn-secondary navbar-btn no-background-button" role="button" [routerLink]="['/users', userID]">
+            {{ firstName }} {{ lastName }}
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <div class="nav-item dropdown">
+            <button type="button" class="btn btn-secondary icon-button navbar-btn" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <fa-icon [icon]="['fas', 'caret-down']"></fa-icon>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a role="button" class="dropdown-item btn" [routerLink]="['/settings']">Settings</a>
+              <a role="button" class="dropdown-item btn" (click)="logoutUser()">Logout</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div *ngIf="!top">
+  <button class="btn top-button" (scroll)="onScroll()" (click)="scrollToTop()">
+    <fa-icon [icon]="['fas', 'angle-double-up']"></fa-icon>
+  </button>
+</div>

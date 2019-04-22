@@ -1,0 +1,16 @@
+<div class="background">
+  <div class="error-container">
+    <div class="logo">
+      <a *ngIf="logoutUser == 'true'" class="logo-link" [routerLink]="['/']">
+        <img id="logo-img" class="navbar-brand logo" src="../../../assets/images/linkDIn_light.png" />
+      </a>
+      <a *ngIf="logoutUser == 'false'" class="logo-link" [routerLink]="['/home']">
+        <img id="logo-img" class="navbar-brand logo" src="../../../assets/images/linkDIn_light.png" />
+      </a>
+    </div>
+    <div class="error-message">
+      Hmm... Something went wrong...
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

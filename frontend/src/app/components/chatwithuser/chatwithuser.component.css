@@ -1,0 +1,21 @@
+.btn.message {
+    position: relative;
+    top: 10px;
+    left: 0px;
+    font-size: 16pt;
+    background-color: transparent;
+    color: #006394;
+    border: none;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn.message:hover,
+.btn.message:focus,
+.btn.message:active {
+    background-color: transparent;
+    color: #00334d;
+    border: none;
+    outline: none !important;
+    box-shadow: none;
+}

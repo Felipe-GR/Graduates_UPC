@@ -1,0 +1,19 @@
+.admin-container {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    max-width: 1000px;
+    margin: auto;
+    height: auto;
+}
+
+.profile-image {
+    height: 50px;
+    width: 50px;
+}
+
+.btn.export {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
