@@ -41,7 +41,7 @@ public class Application {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedMethods("*").allowedOrigins("https://linkdin.dyndns.org:4200");
+                registry.addMapping("/**").allowedMethods("*").allowedOrigins("https://graduates.upc.co:4200");
             }
         };
     }
