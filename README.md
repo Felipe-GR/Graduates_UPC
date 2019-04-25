@@ -11,18 +11,18 @@ This is a single page web application that implements a graduates service simila
 To build & run this application make sure that you have installed Java 8 & MySQL Server. Also you must edit your hosts file by adding the following:
 
 ```
-127.0.0.1 linkdin.dyndns.org
+127.0.0.1 graduates.upc.co
 ```
 
 You can build the package as a single artifact by running the `./mvnw clean install`.
 Next, you can run the application by executing:
 
 ```bash
-$ java -jar backend/target/linkdin-app.jar
+$ java -jar backend/target/graduates-app.jar
 ```
 
-The application will be accessible at `https://linkdin.dyndns.org:8080`. <br>
-Also make sure that the files `cert.pem`, `key.pem` & `keystore.p12` are in the same directory with the `linkdin-app.jar`.
+The application will be accessible at `https://graduates.upc.co:8080`. <br>
+Also make sure that the files `server.crt`, `server.key` & `keystore.p12` are in the same directory with the `graduates-app.jar`.
 
 ### Running the backend for development mode
 There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
@@ -44,7 +44,7 @@ Both the front-end and back-end modules support hot reloading.
 
 ### Database setup
 To set up the database of this web application is pretty straight forward. All you have to do is simply to execute the script `create_db.sql` in the directory `database`. <br>
-Also we have created a script to initiliaze the database with records that are stored in .csv files. To do that just run the script `import_records.sql` with the only resrtiction that all the .csv files must be stored in a directory with name `db_backup` which must be in the same path with the script or just can use the script `single_file.sql` to create some data to test it quickly.
+Also we have created a script to initialize the database with records that are stored in .csv files. To do that just run the script `import_records.sql` with the only resrtiction that all the .csv files must be stored in a directory with name `db_backup` which must be in the same path with the script or just can use the script `single_file.sql` to create some data to test it quickly.
 
 ## Frameworks used
 
