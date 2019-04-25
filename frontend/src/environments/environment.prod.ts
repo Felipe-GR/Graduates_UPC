@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'https://linkdin.dyndns.org:8080'
+  API_URL: 'https://graduates.upc.co:8080'
 };
