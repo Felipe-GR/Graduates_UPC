@@ -69,7 +69,7 @@ Each user's job advert page contains job adverts that are based on the personal 
 ## Certificates
 
 ### TLS
-We used a cerificate that is signed from [Let's Encrypt](https://letsencrypt.org/) in order to encrypt all the traffic between the clients and the server.
+We used a cerificate that is signed from [openSSL](https://www.openssl.org/) in order to encrypt all the traffic between the clients and the server.
 
 ## Extra features
 
